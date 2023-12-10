@@ -20,6 +20,9 @@ namespace RSoft.MacroPad.BLL.Infrasturture.Protocol.Mappers
                 case InputAction.Key10:
                 case InputAction.Key11:
                 case InputAction.Key12:
+                case InputAction.Key13:
+                case InputAction.Key14:
+                case InputAction.Key15:
                     return (byte)action;
                 case InputAction.Knob1Left:
                 case InputAction.Knob1Push:

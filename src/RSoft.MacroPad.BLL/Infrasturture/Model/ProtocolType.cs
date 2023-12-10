@@ -3,6 +3,7 @@
     public enum ProtocolType
     {
         Legacy = 0, 
-        Extended = 1
+        Extended = 1,
+        SdInnovation = 2
     }
 }

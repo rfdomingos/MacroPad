@@ -100,7 +100,7 @@ K{KnobId},{PosX},{PosY},[{SizeX},{SizeY}]
 ```
 
 SizeX and SizeY have a default value of 20 and roughly translate to mm units  
-ButtonId can be between 1-12  
+ButtonId can be between 1-15  
 KnobId can be between 1-3
 
 ### config.txt
@@ -117,7 +117,7 @@ This file is a list supported devices, each is a single line
 {VendorId}:{ProductId},{PathFragment},{ProtocolVersion}
 ```
 
-ProtocolVersion can be 0 (Legacy) or 1 (Extended). Apart from one device (the 3 button 1 knob) all devices use the extended protocol
+ProtocolVersion can be 0 (Legacy), 1 (Extended), or 2 (SDINNOVATION). Apart from one device (the 3 button 1 knob) all original MacroPad devices use the extended protocol
 
 #### Adding your own
 Find your device in Windows' Device Manager:
@@ -127,7 +127,7 @@ Find your device in Windows' Device Manager:
     - Double click device and select the `Details` tab
     - Select `Hardware Ids` from the Properties dropdown. You'll find the VendorID, ProductID and PathFragment in the format of `USB\VID_{VendorId}&PID_{ProductID}&{PathFragment}`of `USB\VID_{VendorId}&PID_{ProductID}&REV_0000&{PathFragment}`
   - Disconnect the keypad and check which ones disappeared from the tree. Use this information to write a new line in the config file
-- For the ProtocolVersion your best bet would be `1` since most of these keypads are using that. If that doesn't work, try `0`.
+- For the ProtocolVersion your best bet would be `1` since most of these keypads are using that. If that doesn't work, try `0`. Use `2` only for SDINNOVATION 3KEY/15KEY devices.
 
 ### Bug reporting
 If you encounter any bugs, please consider creating a ticket in the issues serction on github or contact me via email.

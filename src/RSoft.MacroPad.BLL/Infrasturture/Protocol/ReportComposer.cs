@@ -13,6 +13,8 @@ namespace RSoft.MacroPad.BLL.Infrasturture.Protocol
 
         IEnumerable<Report> Mouse(InputAction action, byte layerNo, MouseButton func, Modifier modifiers);
 
+        IEnumerable<Report> System(InputAction action, byte layerNo, SystemKey key);
+
         IEnumerable<Report> Led(byte layerNo, LedMode mode, LedColor color);
 
 
@@ -70,6 +72,11 @@ namespace RSoft.MacroPad.BLL.Infrasturture.Protocol
             return KeyFunctionEnd(result);
         }
 
+        public IEnumerable<Report> System(InputAction action, byte layerNo, SystemKey key)
+        {
+            return Enumerable.Empty<Report>();
+        }
+
         public IEnumerable<Report> Led(byte layerNo, LedMode mode, LedColor color)
         {
             var result = new List<Report>();
@@ -105,6 +112,11 @@ namespace RSoft.MacroPad.BLL.Infrasturture.Protocol
         public IEnumerable<Report> Mouse(InputAction action, byte layerNo, MouseButton func, Modifier modifiers)
         {
             return new[] { ExtendedReport.CreateMouse(ReportId, action, layerNo,func, modifiers) };
+        }
+
+        public IEnumerable<Report> System(InputAction action, byte layerNo, SystemKey key)
+        {
+            return Enumerable.Empty<Report>();
         }
     }
 }

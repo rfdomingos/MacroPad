@@ -34,6 +34,12 @@
             this.rbVolUp = new System.Windows.Forms.RadioButton();
             this.rbVolDown = new System.Windows.Forms.RadioButton();
             this.rbVolMute = new System.Windows.Forms.RadioButton();
+            this.rbMediaPlayer = new System.Windows.Forms.RadioButton();
+            this.rbCalculator = new System.Windows.Forms.RadioButton();
+            this.rbLocalComputer = new System.Windows.Forms.RadioButton();
+            this.rbHomepage = new System.Windows.Forms.RadioButton();
+            this.rbEmail = new System.Windows.Forms.RadioButton();
+            this.rbSearch = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // rbTrackPrev
@@ -108,10 +114,88 @@
             this.rbVolMute.UseVisualStyleBackColor = true;
             this.rbVolMute.Click += new System.EventHandler(this.KeyChanged);
             // 
+            // rbMediaPlayer
+            // 
+            this.rbMediaPlayer.AutoSize = true;
+            this.rbMediaPlayer.Location = new System.Drawing.Point(260, 4);
+            this.rbMediaPlayer.Name = "rbMediaPlayer";
+            this.rbMediaPlayer.Size = new System.Drawing.Size(85, 17);
+            this.rbMediaPlayer.TabIndex = 0;
+            this.rbMediaPlayer.TabStop = true;
+            this.rbMediaPlayer.Text = "Media player";
+            this.rbMediaPlayer.UseVisualStyleBackColor = true;
+            this.rbMediaPlayer.Click += new System.EventHandler(this.KeyChanged);
+            // 
+            // rbCalculator
+            // 
+            this.rbCalculator.AutoSize = true;
+            this.rbCalculator.Location = new System.Drawing.Point(260, 27);
+            this.rbCalculator.Name = "rbCalculator";
+            this.rbCalculator.Size = new System.Drawing.Size(73, 17);
+            this.rbCalculator.TabIndex = 0;
+            this.rbCalculator.TabStop = true;
+            this.rbCalculator.Text = "Calculator";
+            this.rbCalculator.UseVisualStyleBackColor = true;
+            this.rbCalculator.Click += new System.EventHandler(this.KeyChanged);
+            // 
+            // rbLocalComputer
+            // 
+            this.rbLocalComputer.AutoSize = true;
+            this.rbLocalComputer.Location = new System.Drawing.Point(260, 50);
+            this.rbLocalComputer.Name = "rbLocalComputer";
+            this.rbLocalComputer.Size = new System.Drawing.Size(96, 17);
+            this.rbLocalComputer.TabIndex = 0;
+            this.rbLocalComputer.TabStop = true;
+            this.rbLocalComputer.Text = "Local computer";
+            this.rbLocalComputer.UseVisualStyleBackColor = true;
+            this.rbLocalComputer.Click += new System.EventHandler(this.KeyChanged);
+            // 
+            // rbHomepage
+            // 
+            this.rbHomepage.AutoSize = true;
+            this.rbHomepage.Location = new System.Drawing.Point(390, 4);
+            this.rbHomepage.Name = "rbHomepage";
+            this.rbHomepage.Size = new System.Drawing.Size(79, 17);
+            this.rbHomepage.TabIndex = 0;
+            this.rbHomepage.TabStop = true;
+            this.rbHomepage.Text = "Homepage";
+            this.rbHomepage.UseVisualStyleBackColor = true;
+            this.rbHomepage.Click += new System.EventHandler(this.KeyChanged);
+            // 
+            // rbEmail
+            // 
+            this.rbEmail.AutoSize = true;
+            this.rbEmail.Location = new System.Drawing.Point(390, 27);
+            this.rbEmail.Name = "rbEmail";
+            this.rbEmail.Size = new System.Drawing.Size(50, 17);
+            this.rbEmail.TabIndex = 0;
+            this.rbEmail.TabStop = true;
+            this.rbEmail.Text = "Email";
+            this.rbEmail.UseVisualStyleBackColor = true;
+            this.rbEmail.Click += new System.EventHandler(this.KeyChanged);
+            // 
+            // rbSearch
+            // 
+            this.rbSearch.AutoSize = true;
+            this.rbSearch.Location = new System.Drawing.Point(390, 50);
+            this.rbSearch.Name = "rbSearch";
+            this.rbSearch.Size = new System.Drawing.Size(59, 17);
+            this.rbSearch.TabIndex = 0;
+            this.rbSearch.TabStop = true;
+            this.rbSearch.Text = "Search";
+            this.rbSearch.UseVisualStyleBackColor = true;
+            this.rbSearch.Click += new System.EventHandler(this.KeyChanged);
+            // 
             // MediaKeyTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.rbSearch);
+            this.Controls.Add(this.rbEmail);
+            this.Controls.Add(this.rbHomepage);
+            this.Controls.Add(this.rbLocalComputer);
+            this.Controls.Add(this.rbCalculator);
+            this.Controls.Add(this.rbMediaPlayer);
             this.Controls.Add(this.rbVolMute);
             this.Controls.Add(this.rbTrackPlay);
             this.Controls.Add(this.rbVolDown);
@@ -135,5 +219,11 @@
         private System.Windows.Forms.RadioButton rbVolUp;
         private System.Windows.Forms.RadioButton rbVolDown;
         private System.Windows.Forms.RadioButton rbVolMute;
+        private System.Windows.Forms.RadioButton rbMediaPlayer;
+        private System.Windows.Forms.RadioButton rbCalculator;
+        private System.Windows.Forms.RadioButton rbLocalComputer;
+        private System.Windows.Forms.RadioButton rbHomepage;
+        private System.Windows.Forms.RadioButton rbEmail;
+        private System.Windows.Forms.RadioButton rbSearch;
     }
 }

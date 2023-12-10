@@ -38,8 +38,22 @@ namespace RSoft.MacroPad.Controls.Tabs
 
         public ushort Delay
         {
-            get => (ushort)nudDelay.Value;
-            set { nudDelay.Value = value; }
+            get => DelaySupported ? (ushort)nudDelay.Value : (ushort)0;
+            set
+            {
+                if (value < nudDelay.Minimum)
+                {
+                    nudDelay.Value = nudDelay.Minimum;
+                }
+                else if (value > nudDelay.Maximum)
+                {
+                    nudDelay.Value = nudDelay.Maximum;
+                }
+                else
+                {
+                    nudDelay.Value = value;
+                }
+            }
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]

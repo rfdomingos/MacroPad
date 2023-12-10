@@ -37,6 +37,8 @@ namespace RSoft.MacroPad.Controls.Tabs
             rbClickLeft.Tag = MouseButton.Left;
             rbClickMiddle.Tag = MouseButton.Middle;
             rbClickRight.Tag = MouseButton.Right;
+            rbClickBack.Tag = MouseButton.Back;
+            rbClickForward.Tag = MouseButton.Forward;
 
             rbScrollUp.Tag = MouseButton.ScrollUp;
             rbScrollDown.Tag = MouseButton.ScrollDown;

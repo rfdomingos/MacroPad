@@ -41,6 +41,12 @@ namespace RSoft.MacroPad.Controls.Tabs
             rbVolUp.Tag = Keys.VolumeUp;
             rbVolDown.Tag = Keys.VolumeDown;
             rbVolMute.Tag = Keys.VolumeMute;
+            rbMediaPlayer.Tag = Keys.SelectMedia;
+            rbCalculator.Tag = Keys.LaunchApplication2;
+            rbLocalComputer.Tag = Keys.LaunchApplication1;
+            rbHomepage.Tag = Keys.BrowserHome;
+            rbEmail.Tag = Keys.LaunchMail;
+            rbSearch.Tag = Keys.BrowserSearch;
 
             UpdateControls();
         }

@@ -53,6 +53,11 @@ namespace RSoft.MacroPad.BLL.Infrasturture.UsbDevice
 
         protected virtual byte KeyBoardVersionCheck()
         {
+            if (ProtocolType == ProtocolType.SdInnovation)
+            {
+                return Version = ProductId == 56573 ? (byte)15 : (byte)3;
+            }
+
             if (Write(VersionCheckReport.Create(0)))
                 return Version = 0;
             if (Write(VersionCheckReport.Create(2)))

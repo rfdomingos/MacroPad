@@ -38,6 +38,8 @@
             mediaKeyTab1 = new Tabs.MediaKeyTab();
             tabMouse = new System.Windows.Forms.TabPage();
             mouseButtonsTab1 = new Tabs.MouseButtonsTab();
+            tabSystem = new System.Windows.Forms.TabPage();
+            systemKeyTab1 = new Tabs.SystemKeyTab();
             tabLed = new System.Windows.Forms.TabPage();
             ledTab1 = new Tabs.LedTab();
             tabControl1.SuspendLayout();
@@ -46,6 +48,7 @@
             tabSequence.SuspendLayout();
             tabMedia.SuspendLayout();
             tabMouse.SuspendLayout();
+            tabSystem.SuspendLayout();
             tabLed.SuspendLayout();
             SuspendLayout();
             // 
@@ -79,6 +82,7 @@
             tabControl2.Controls.Add(tabSequence);
             tabControl2.Controls.Add(tabMedia);
             tabControl2.Controls.Add(tabMouse);
+            tabControl2.Controls.Add(tabSystem);
             tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             tabControl2.Location = new System.Drawing.Point(4, 3);
             tabControl2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -162,6 +166,29 @@
             mouseButtonsTab1.Size = new System.Drawing.Size(1221, 138);
             mouseButtonsTab1.TabIndex = 0;
             // 
+            // tabSystem
+            // 
+            tabSystem.Controls.Add(systemKeyTab1);
+            tabSystem.Location = new System.Drawing.Point(4, 27);
+            tabSystem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabSystem.Name = "tabSystem";
+            tabSystem.Size = new System.Drawing.Size(1221, 452);
+            tabSystem.TabIndex = 3;
+            tabSystem.Text = "System";
+            tabSystem.UseVisualStyleBackColor = true;
+            // 
+            // systemKeyTab1
+            // 
+            systemKeyTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            systemKeyTab1.Key = BLL.Infrasturture.Model.SystemKey.Sleep;
+            systemKeyTab1.Location = new System.Drawing.Point(0, 0);
+            systemKeyTab1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            systemKeyTab1.MaximumSize = new System.Drawing.Size(2100, 138);
+            systemKeyTab1.MinimumSize = new System.Drawing.Size(933, 138);
+            systemKeyTab1.Name = "systemKeyTab1";
+            systemKeyTab1.Size = new System.Drawing.Size(1221, 138);
+            systemKeyTab1.TabIndex = 0;
+            // 
             // tabLed
             // 
             tabLed.Controls.Add(ledTab1);
@@ -203,6 +230,7 @@
             tabSequence.ResumeLayout(false);
             tabMedia.ResumeLayout(false);
             tabMouse.ResumeLayout(false);
+            tabSystem.ResumeLayout(false);
             tabLed.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -216,8 +244,10 @@
         private System.Windows.Forms.TabPage tabSequence;
         private System.Windows.Forms.TabPage tabMedia;
         private System.Windows.Forms.TabPage tabMouse;
+        private System.Windows.Forms.TabPage tabSystem;
         private Tabs.MediaKeyTab mediaKeyTab1;
         private Tabs.MouseButtonsTab mouseButtonsTab1;
+        private Tabs.SystemKeyTab systemKeyTab1;
         private Tabs.KeyTab keyTab1;
         private Tabs.LedTab ledTab1;
     }

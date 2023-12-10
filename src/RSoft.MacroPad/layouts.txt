@@ -14,7 +14,7 @@
 //		K{KnobId},{PosX},{PosY},[{SizeX},{SizeY}]
 //
 // SizeX and SizeY have a default value of 20 and roughly translate to mm units
-// ButtonId can be between 1-12
+// ButtonId can be between 1-15
 // KnobId can be between 1-3
 
 
@@ -113,3 +113,32 @@ Layout: Mini Typewriter (6Btn 2Kn)
 	B6,45,50
 	K1,5,5
 	K2,45,5
+
+Layout: 3KEY SDINNOVATION
+	28027:56570
+	1:1:0:0:0
+	B1,5,5
+	B2,25,5
+	B3,45,5
+	K1,70,5
+
+Layout: 15KEY SDINNOVATION
+	28030:56573
+	1:1:0:0:0
+	B1,5,5
+	B2,25,5
+	B3,45,5
+	B4,65,5
+	B5,85,5
+	B6,5,25
+	B7,25,25
+	B8,45,25
+	B9,65,25
+	B10,85,25
+	B11,5,45
+	B12,25,45
+	B13,45,45
+	B14,65,45
+	B15,85,45
+	K1,110,5
+	K2,110,45

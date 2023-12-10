@@ -62,6 +62,12 @@ namespace RSoft.MacroPad.Controls.Compound
             set { mouseButtonsTab1.MouseButton = value; }
         }
 
+        public SystemKey SystemKey
+        {
+            get => systemKeyTab1.Key;
+            set { systemKeyTab1.Key = value; }
+        }
+
         public Modifier MouseModifier
         {
             get => mouseButtonsTab1.Modifier;
@@ -110,9 +116,11 @@ namespace RSoft.MacroPad.Controls.Compound
             {
                 if (tabControl2.SelectedTab == tabSequence)
                     Function = SetFunction.KeySequence;
-                else if (tabControl2.SelectedTab == tabMedia)
-                    Function = SetFunction.MediaKey;
-                else Function = SetFunction.Mouse;
+            else if (tabControl2.SelectedTab == tabMedia)
+                Function = SetFunction.MediaKey;
+            else if (tabControl2.SelectedTab == tabMouse)
+                Function = SetFunction.Mouse;
+            else Function = SetFunction.SystemKey;
             }
             if (Function != SetFunction.KeySequence)
             {
@@ -136,6 +144,7 @@ namespace RSoft.MacroPad.Controls.Compound
                 case SetFunction.KeySequence: tabControl2.SelectTab(tabSequence); break;
                 case SetFunction.MediaKey: tabControl2.SelectTab(tabMedia); break;
                 case SetFunction.Mouse: tabControl2.SelectTab(tabMouse); break;
+                case SetFunction.SystemKey: tabControl2.SelectTab(tabSystem); break;
             }
         }
 

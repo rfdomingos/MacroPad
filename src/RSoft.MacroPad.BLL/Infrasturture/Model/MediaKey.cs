@@ -30,6 +30,24 @@
         [MediaValue(0, 1, 0)]
         [MediaValue(2, 128, 0)]
         [MediaValue(3, 234, 0)]
-        [VirtualKeyMap(VirtualKey.VolumeDown)]VolDn
+        [VirtualKeyMap(VirtualKey.VolumeDown)]VolDn,
+
+        [MediaValue(3, 0x83, 0x01)]
+        [VirtualKeyMap(VirtualKey.SelectMedia)]MediaPlayer,
+
+        [MediaValue(3, 0x92, 0x01)]
+        [VirtualKeyMap(VirtualKey.LaunchApplication2)]Calculator,
+
+        [MediaValue(3, 0x94, 0x01)]
+        [VirtualKeyMap(VirtualKey.LaunchApplication1)]LocalComputer,
+
+        [MediaValue(3, 0x23, 0x02)]
+        [VirtualKeyMap(VirtualKey.BrowserHome)]Homepage,
+
+        [MediaValue(3, 0x8A, 0x01)]
+        [VirtualKeyMap(VirtualKey.LaunchMail)]Email,
+
+        [MediaValue(3, 0x21, 0x02)]
+        [VirtualKeyMap(VirtualKey.BrowserSearch)]Search
     }
 }

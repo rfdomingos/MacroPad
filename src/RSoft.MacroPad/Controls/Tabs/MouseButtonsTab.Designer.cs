@@ -31,6 +31,8 @@
             this.rbClickLeft = new System.Windows.Forms.RadioButton();
             this.rbClickMiddle = new System.Windows.Forms.RadioButton();
             this.rbClickRight = new System.Windows.Forms.RadioButton();
+            this.rbClickBack = new System.Windows.Forms.RadioButton();
+            this.rbClickForward = new System.Windows.Forms.RadioButton();
             this.rbScrollUp = new System.Windows.Forms.RadioButton();
             this.rbScrollDown = new System.Windows.Forms.RadioButton();
             this.cbShiftL = new System.Windows.Forms.CheckBox();
@@ -83,10 +85,34 @@
             this.rbClickRight.UseVisualStyleBackColor = true;
             this.rbClickRight.Click += new System.EventHandler(this.ButtonChanged);
             // 
+            // rbClickBack
+            // 
+            this.rbClickBack.AutoSize = true;
+            this.rbClickBack.Location = new System.Drawing.Point(107, 19);
+            this.rbClickBack.Name = "rbClickBack";
+            this.rbClickBack.Size = new System.Drawing.Size(50, 17);
+            this.rbClickBack.TabIndex = 0;
+            this.rbClickBack.TabStop = true;
+            this.rbClickBack.Text = "Back";
+            this.rbClickBack.UseVisualStyleBackColor = true;
+            this.rbClickBack.Click += new System.EventHandler(this.ButtonChanged);
+            // 
+            // rbClickForward
+            // 
+            this.rbClickForward.AutoSize = true;
+            this.rbClickForward.Location = new System.Drawing.Point(107, 42);
+            this.rbClickForward.Name = "rbClickForward";
+            this.rbClickForward.Size = new System.Drawing.Size(63, 17);
+            this.rbClickForward.TabIndex = 0;
+            this.rbClickForward.TabStop = true;
+            this.rbClickForward.Text = "Forward";
+            this.rbClickForward.UseVisualStyleBackColor = true;
+            this.rbClickForward.Click += new System.EventHandler(this.ButtonChanged);
+            // 
             // rbScrollUp
             // 
             this.rbScrollUp.AutoSize = true;
-            this.rbScrollUp.Location = new System.Drawing.Point(107, 19);
+            this.rbScrollUp.Location = new System.Drawing.Point(107, 65);
             this.rbScrollUp.Name = "rbScrollUp";
             this.rbScrollUp.Size = new System.Drawing.Size(66, 17);
             this.rbScrollUp.TabIndex = 0;
@@ -98,7 +124,7 @@
             // rbScrollDown
             // 
             this.rbScrollDown.AutoSize = true;
-            this.rbScrollDown.Location = new System.Drawing.Point(107, 42);
+            this.rbScrollDown.Location = new System.Drawing.Point(107, 88);
             this.rbScrollDown.Name = "rbScrollDown";
             this.rbScrollDown.Size = new System.Drawing.Size(80, 17);
             this.rbScrollDown.TabIndex = 0;
@@ -200,6 +226,8 @@
             this.gbFunction.Controls.Add(this.rbClickMiddle);
             this.gbFunction.Controls.Add(this.rbClickLeft);
             this.gbFunction.Controls.Add(this.rbClickRight);
+            this.gbFunction.Controls.Add(this.rbClickBack);
+            this.gbFunction.Controls.Add(this.rbClickForward);
             this.gbFunction.Controls.Add(this.rbScrollUp);
             this.gbFunction.Controls.Add(this.rbScrollDown);
             this.gbFunction.Location = new System.Drawing.Point(3, 3);
@@ -249,6 +277,8 @@
         private System.Windows.Forms.RadioButton rbClickLeft;
         private System.Windows.Forms.RadioButton rbClickMiddle;
         private System.Windows.Forms.RadioButton rbClickRight;
+        private System.Windows.Forms.RadioButton rbClickBack;
+        private System.Windows.Forms.RadioButton rbClickForward;
         private System.Windows.Forms.RadioButton rbScrollUp;
         private System.Windows.Forms.RadioButton rbScrollDown;
         private System.Windows.Forms.CheckBox cbShiftL;

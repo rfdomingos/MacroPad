@@ -28,7 +28,8 @@ namespace RSoft.MacroPad.BLL.Infrasturture.UsbDevice
                 {
                     foreach (HidDevice hidDevice in HidDevices.Enumerate(supportedProduct.VendorId).ToList())
                     {
-                        if (hidDevice.DevicePath.IndexOf(supportedProduct.PathFragment) != -1)
+                        if (hidDevice.DevicePath.IndexOf(supportedProduct.PathFragment) != -1
+                            && IsSupportedCollection(hidDevice, supportedProduct.ProtocolType))
                         {
                             _deviceList.Add(hidDevice);
                             _hidDevice = hidDevice;
@@ -48,6 +49,14 @@ namespace RSoft.MacroPad.BLL.Infrasturture.UsbDevice
             }
 
             return false;
+        }
+
+        private bool IsSupportedCollection(HidDevice hidDevice, ProtocolType protocolType)
+        {
+            if (protocolType != Model.ProtocolType.SdInnovation)
+                return true;
+
+            return hidDevice.Capabilities.OutputReportByteLength >= 32;
         }
 
         public bool CheckConnection()

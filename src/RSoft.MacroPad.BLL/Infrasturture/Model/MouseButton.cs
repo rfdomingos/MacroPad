@@ -11,6 +11,12 @@
         [MouseValues(2, 0)]
         Right,
 
+        [MouseValues(8, 0)]
+        Back,
+
+        [MouseValues(16, 0)]
+        Forward,
+
         [MouseValues(0, 1)]
         ScrollUp,
 

@@ -129,27 +129,50 @@ namespace RSoft.MacroPad.Forms
             var composer = _composerRepository.Get(_usb.ProtocolType, _usb.Version);
 
             IEnumerable<Report> reports = Enumerable.Empty<Report>();
-            switch (keyboardFunction1.Function)
+            try
             {
-                case Model.SetFunction.LED:
-                    reports = composer.Led(keyboardVisual1.Layer, keyboardFunction1.LedMode, keyboardFunction1.LedColor);
-                    break;
-                case Model.SetFunction.KeySequence:
-                    var currentLayout = PInvoke.GetKeyboardLayout(0);
-                    var enUsLayout = PInvoke.LoadKeyboardLayout("00000409", ACTIVATE_KEYBOARD_LAYOUT_FLAGS.KLF_ACTIVATE);
-
-                    reports = composer.Key(keyboardVisual1.SelectedAction, keyboardVisual1.Layer, keyboardFunction1.Delay,
-                        keyboardFunction1.KeySequence.Select(s => (
-                        KeyCodeMapper.Map((VirtualKey)PInvoke.MapVirtualKeyEx((uint)s.ScanCode, MAP_VIRTUAL_KEY_TYPE.MAPVK_VSC_TO_VK, enUsLayout)),
-                        ModifierMapper.Map(s.ShiftL, s.ShiftR, s.AltL, s.AltR, s.CtrlL, s.CtrlR, s.WinL, s.WinR))));
-                    PInvoke.ActivateKeyboardLayout(currentLayout, ACTIVATE_KEYBOARD_LAYOUT_FLAGS.KLF_ACTIVATE);
-                    break;
-                case Model.SetFunction.MediaKey:
-                    reports = composer.Media(keyboardVisual1.SelectedAction, keyboardVisual1.Layer, MediaKeyMapper.Map((VirtualKey)keyboardFunction1.MediaKey));
-                    break;
+                switch (keyboardFunction1.Function)
+                {
+                    case Model.SetFunction.LED:
+                        reports = composer.Led(keyboardVisual1.Layer, keyboardFunction1.LedMode, keyboardFunction1.LedColor);
+                        break;
+                    case Model.SetFunction.KeySequence:
+                        var currentLayout = PInvoke.GetKeyboardLayout(0);
+                        var enUsLayout = PInvoke.LoadKeyboardLayout("00000409", ACTIVATE_KEYBOARD_LAYOUT_FLAGS.KLF_ACTIVATE);
+                        try
+                        {
+                            reports = composer.Key(keyboardVisual1.SelectedAction, keyboardVisual1.Layer, keyboardFunction1.Delay,
+                                keyboardFunction1.KeySequence.Select(s => (
+                                KeyCodeMapper.Map((VirtualKey)PInvoke.MapVirtualKeyEx((uint)s.ScanCode, MAP_VIRTUAL_KEY_TYPE.MAPVK_VSC_TO_VK, enUsLayout)),
+                                ModifierMapper.Map(s.ShiftL, s.ShiftR, s.AltL, s.AltR, s.CtrlL, s.CtrlR, s.WinL, s.WinR))));
+                        }
+                        finally
+                        {
+                            PInvoke.ActivateKeyboardLayout(currentLayout, ACTIVATE_KEYBOARD_LAYOUT_FLAGS.KLF_ACTIVATE);
+                        }
+                        break;
+                    case Model.SetFunction.MediaKey:
+                        reports = composer.Media(keyboardVisual1.SelectedAction, keyboardVisual1.Layer, MediaKeyMapper.Map((VirtualKey)keyboardFunction1.MediaKey));
+                        break;
                 case Model.SetFunction.Mouse:
                     reports = composer.Mouse(keyboardVisual1.SelectedAction, keyboardVisual1.Layer, keyboardFunction1.MouseButton, keyboardFunction1.MouseModifier);
                     break;
+                case Model.SetFunction.SystemKey:
+                    reports = composer.System(keyboardVisual1.SelectedAction, keyboardVisual1.Layer, keyboardFunction1.SystemKey);
+                    break;
+            }
+                reports = reports.ToArray();
+            }
+            catch (NotSupportedException ex)
+            {
+                lblCommStatus.Text = $"{ex.Message} [{DateTime.Now.ToString("T")}]";
+                return;
+            }
+
+            if (!reports.Any())
+            {
+                lblCommStatus.Text = $"Selected function is not supported by this protocol [{DateTime.Now.ToString("T")}]";
+                return;
             }
             bool success = true;
             HidLog.ClearLog();

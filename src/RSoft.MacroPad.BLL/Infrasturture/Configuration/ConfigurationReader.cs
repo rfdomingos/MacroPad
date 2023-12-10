@@ -8,7 +8,7 @@ namespace RSoft.MacroPad.BLL.Infrasturture.Configuration
 {
     public class ConfigurationReader
     {
-        Regex DeviceConfigLinePattern = new Regex(@"^([0-9]+):([0-9]+),([a-zA-Z0-9\-_]+)(?:,([01]))$");
+        Regex DeviceConfigLinePattern = new Regex(@"^([0-9]+):([0-9]+),([a-zA-Z0-9\-_]+)(?:,([012]))$");
         public Configuration Read(string fileName)
         {
             string[] lines;
@@ -43,7 +43,11 @@ namespace RSoft.MacroPad.BLL.Infrasturture.Configuration
                     if (match.Groups.Count > 4)
                     {
                         var type = byte.Parse(match.Groups[4].Value);
-                        d.Type = type == 0 ? ProtocolType.Legacy : ProtocolType.Extended;
+                        d.Type = type == 0
+                            ? ProtocolType.Legacy
+                            : type == 1
+                                ? ProtocolType.Extended
+                                : ProtocolType.SdInnovation;
                     }
                     devices.Add(d);
                     continue;

@@ -16,6 +16,9 @@
         Key10,
         Key11,
         Key12,
+        Key13,
+        Key14,
+        Key15,
 
         Knob1Left = 23,
         Knob1Push,
