@@ -47,6 +47,39 @@ namespace RSoft.MacroPad.BLL.Infrasturture.UsbDevice
                 }
             }
 
+            // Add new device descriptors
+            var newDevices = new (ushort VendorId, ushort ProductId, string PathFragment, ProtocolType ProtocolType)[]
+            {
+                (28027, 56506, "mi_00", ProtocolType.Extended), // SIDE-KEYBOARD
+                (28027, 56507, "mi_00", ProtocolType.Extended)  // SIDE-KEYBOARD
+            };
+
+            foreach (var newDevice in newDevices)
+            {
+                _hidDevice = HidDevices.Enumerate(newDevice.VendorId, newDevice.ProductId).FirstOrDefault();
+                if (_hidDevice != null)
+                {
+                    foreach (HidDevice hidDevice in HidDevices.Enumerate(newDevice.VendorId).ToList())
+                    {
+                        if (hidDevice.DevicePath.IndexOf(newDevice.PathFragment) != -1)
+                        {
+                            _deviceList.Add(hidDevice);
+                            _hidDevice = hidDevice;
+                            _hidDevice.OpenDevice();
+                            //// Somehow this is not supported in .net6 but doesn't seem to make any difference
+                            //_hidDevice.MonitorDeviceEvents = true;
+
+                            ProtocolType = newDevice.ProtocolType;
+                            VendorId = newDevice.VendorId;
+                            ProductId = newDevice.ProductId;
+
+                            _deviceStatus = true;
+                            return true;
+                        }
+                    }
+                }
+            }
+
             return false;
         }
 

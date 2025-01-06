@@ -14,7 +14,9 @@ namespace RSoft.MacroPad.BLL.Infrasturture.UsbDevice
             (4489, 34865, "mi_00", ProtocolType.Extended),
             (4489, 34866, "mi_00", ProtocolType.Extended),
             (4489, 34967, "mi_00", ProtocolType.Extended),
-            (4489, 34932, "mi_00", ProtocolType.Extended)
+            (4489, 34932, "mi_00", ProtocolType.Extended),
+            (28027, 56506, "mi_00", ProtocolType.Extended), // SIDE-KEYBOARD
+            (28027, 56507, "mi_00", ProtocolType.Extended)  // SIDE-KEYBOARD
         };
     }
 }
