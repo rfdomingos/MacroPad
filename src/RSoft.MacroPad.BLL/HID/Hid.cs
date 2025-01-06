@@ -40,6 +40,7 @@ namespace HID
                 IntPtr file = Hid.CreateFile(deviceList[index], 3221225472U, 0U, 0U, 3U, 1073741824U, 0U);
                 if (file != Hid.INVALID_HANDLE_VALUE)
                 {
+                    // GOTCHA: Potential memory leak if Marshal.AllocHGlobal is not freed
                     IntPtr num = Marshal.AllocHGlobal(512);
                     HIDD_ATTRIBUTES attributes;
                     Hid.HidD_GetAttributes(file, out attributes);
@@ -67,6 +68,7 @@ namespace HID
                 IntPtr file = Hid.CreateFile(deviceList[index], 3221225472U, 0U, 0U, 3U, 1073741824U, 0U);
                 if (file != Hid.INVALID_HANDLE_VALUE)
                 {
+                    // GOTCHA: Potential memory leak if Marshal.AllocHGlobal is not freed
                     IntPtr num = Marshal.AllocHGlobal(512);
                     HIDD_ATTRIBUTES attributes;
                     if (!Hid.HidD_GetAttributes(file, out attributes))
@@ -86,6 +88,7 @@ namespace HID
                         Hid.HidD_FreePreparsedData(PreparsedData);
                         this.outputReportLength = (int)Capabilities.OutputReportByteLength;
                         this.inputReportLength = (int)Capabilities.InputReportByteLength;
+                        // IMPROVEMENT: Use 'using' statement for FileStream to ensure proper disposal
                         this.hidDevice = new FileStream(new SafeFileHandle(file, false), FileAccess.ReadWrite, this.inputReportLength, true);
                         this.deviceOpened = true;
                         this.BeginAsyncRead();
@@ -104,6 +107,7 @@ namespace HID
             if (!this.deviceOpened)
                 return;
             this.deviceOpened = false;
+            // FIXIT: Handle possible IOException in CloseDevice method
             this.hidDevice.Close();
             Hid.CloseHandle(device);
         }

@@ -9,6 +9,8 @@ namespace RSoft.MacroPad.BLL.Infrasturture.Physical
     {
         public KeyboardLayout[] Parse(string path)
         {
+            // GOTCHA: Potential exception if file is not found
+            // IMPROVEMENT: Use 'using' statement for FileStream to ensure proper disposal
             var lines = File.ReadAllLines(path).Select(l => l.Trim()).ToArray();
 
             KeyboardLayout layout = null;

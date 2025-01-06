@@ -14,8 +14,10 @@ namespace RSoft.MacroPad.BLL.Infrasturture.Configuration
             string[] lines;
             try
             {
+                // IMPROVEMENT: Use 'using' statement for FileStream to ensure proper disposal
                 lines = File.ReadAllLines(fileName).Select(l => l.Trim()).ToArray();
             }
+            // GOTCHA: Potential exception if file is not found
             catch { return null; }
 
             var devices = new List<(ushort VendorId, ushort ProductId, string PathPattern, ProtocolType ProtocolType)>();

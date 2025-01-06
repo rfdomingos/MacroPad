@@ -1,4 +1,3 @@
-﻿
 using System.Collections.Generic;
 using System.Linq;
 using RSoft.MacroPad.BLL.Infrasturture.Model;
@@ -6,6 +5,7 @@ using RSoft.MacroPad.BLL.Infrasturture.Protocol;
 
 namespace RSoft.MacroPad.BLL.Infrasturture
 {
+    // IMPROVEMENT: Use Dictionary for better performance in Get method
     public class ComposerRepository
     {
         public List<(IReportComposer Composer, ProtocolType Type, byte Version)> _cache;
