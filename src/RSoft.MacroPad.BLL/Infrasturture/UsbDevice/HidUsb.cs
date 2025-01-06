@@ -34,6 +34,28 @@ namespace RSoft.MacroPad.BLL.Infrasturture.UsbDevice
                     return IsConnected = true;
                 }
             }
+
+            // Add new device descriptors
+            var newDevices = new (ushort VendorId, ushort ProductId, string PathFragment, ProtocolType ProtocolType)[]
+            {
+                (28027, 56506, "mi_00", ProtocolType.Extended), // SIDE-KEYBOARD
+                (28027, 56507, "mi_00", ProtocolType.Extended)  // SIDE-KEYBOARD
+            };
+
+            foreach (var newDevice in newDevices)
+            {
+                if ((int)(_hidPtr = _hid.OpenDevice(newDevice.VendorId, newDevice.ProductId)) != -1)
+                {
+                    VendorId = newDevice.VendorId;
+                    ProductId = newDevice.ProductId;
+
+                    ProtocolType = newDevice.ProtocolType;
+
+                    Connected();
+                    return IsConnected = true;
+                }
+            }
+
             return IsConnected = false;
         }
     }
