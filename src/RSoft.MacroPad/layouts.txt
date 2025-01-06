@@ -1,4 +1,4 @@
-// Layout definitions for visual representation only
+﻿// Layout definitions for visual representation only
 // Not whitespace sensitive
 //
 // Format:
@@ -113,3 +113,23 @@ Layout: Mini Typewriter (6Btn 2Kn)
 	B6,45,50
 	K1,5,5
 	K2,45,5
+
+Layout: SIDE-KEYBOARD 3 buttons 1 knob
+	28027:56506
+	1:5:0:0:3
+	B1,5,5
+	B2,25,5
+	B3,45,5
+	K1,70,5
+
+Layout: SIDE-KEYBOARD 6 buttons 2 knobs
+	28027:56507
+	3:18:1:1:6
+	B1,5,5
+	B2,25,5
+	B3,45,5
+	B4,5,25
+	B5,25,25
+	B6,45,25
+	K1,70,5
+	K2,70,25
