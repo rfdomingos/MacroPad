@@ -1,5 +1,6 @@
 ﻿using System;
 using HID;
+using RSoft.MacroPad.BLL.Infrasturture.Model;
 using RSoft.MacroPad.BLL.Infrasturture.Protocol;
 
 namespace RSoft.MacroPad.BLL.Infrasturture.UsbDevice
@@ -38,8 +39,8 @@ namespace RSoft.MacroPad.BLL.Infrasturture.UsbDevice
             // Add new device descriptors
             var newDevices = new (ushort VendorId, ushort ProductId, string PathFragment, ProtocolType ProtocolType)[]
             {
-                (28027, 56506, "mi_00", ProtocolType.Extended), // SIDE-KEYBOARD
-                (28027, 56507, "mi_00", ProtocolType.Extended)  // SIDE-KEYBOARD
+                (28027, 56506, "mi_00", RSoft.MacroPad.BLL.Infrasturture.Model.ProtocolType.Extended), // SIDE-KEYBOARD
+                (28027, 56507, "mi_00", RSoft.MacroPad.BLL.Infrasturture.Model.ProtocolType.Extended)  // SIDE-KEYBOARD
             };
 
             foreach (var newDevice in newDevices)
